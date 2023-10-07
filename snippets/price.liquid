@@ -1,15 +1,15 @@
 {% comment %}
-  Renders a list of product's price (regular, sale)
+Renders a list of product's price (regular, sale)
 
-  Accepts:
-  - product: {Object} Product Liquid object (optional)
-  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
-  - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
-  - price_class: {String} Adds a price class to the price element (optional)
-  - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+Accepts:
+- product: {Object} Product Liquid object (optional)
+- use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+- show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+- price_class: {String} Adds a price class to the price element (optional)
+- show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
 
-  Usage:
-  {% render 'price', product: product %}
+Usage:
+{% render 'price', product: product %}
 {% endcomment %}
 {%- liquid
   if use_variant
@@ -39,20 +39,24 @@
 
 <div
   class="
-    price
-    {%- if price_class %} {{ price_class }}{% endif -%}
-    {%- if available == false %} price--sold-out{% endif -%}
-    {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
-    {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
-    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
-    {%- if show_badges %} price--show-badge{% endif -%}
-  "
->
+  price
+  {%- if price_class %}
+    {{ price_class }}{% endif -%}
+  {%- if available == false %}
+    price--sold-out{% endif -%}
+  {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %}
+    price--on-sale{% endif -%}
+  {%- if compare_at_price > price and product.quantity_price_breaks_configured? %}
+    volume-pricing--sale-badge{% endif -%}
+  {%- if product.price_varies == false and product.compare_at_price_varies %}
+    price--no-compare{% endif -%}
+  {%- if show_badges %}
+    price--show-badge{% endif -%}">
   <div class="price__container">
     {%- comment -%}
-      Explanation of description list:
-        - div.price__regular: Displayed when there are no variants on sale
-        - div.price__sale: Displayed when a variant is a sale
+    Explanation of description list:
+    - div.price__regular: Displayed when there are no variants on sale
+    - div.price__sale: Displayed when a variant is a sale
     {%- endcomment -%}
     <div class="price__regular">
       {%- if product.quantity_price_breaks_configured? -%}
@@ -116,13 +120,50 @@
       </span>
     </small>
   </div>
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  {% assign currentDate = 'now' | date: '%s' %}
+  {% assign withinAMonth = currentDate | minus: 2592000 %}
+  {% assign productDate = product.published_at | date: '%s' %}
+  <span style="background-color: rgb(0, 209, 21);">
+    <p>
+      {% if current_variant.available %}
+        {% if current_variant.inventory_quantity < 10 %}
+          {% if currentDate >= productDate %}
+            Hot Deal
+          {% else %}
+            Limited Stock
+          {% endif %}
+        {% elsif currentDate >= productDate %}
+          New Arrival
+        {% endif %}
+      {% endif %}
+    </p>
+  </span>
   {%- if show_badges -%}
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    {% assign currentDate = 'now' | date: '%s' %}
+    {% assign withinAMonth = currentDate | minus: 2592000 %}
+    {% assign productDate = product.published_at | date: '%s' %}
+
     <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-      {{ 'products.product.on_sale' | t }}
+      {% if current_variant.available %}
+        {% if current_variant.inventory_quantity < 10 %}
+          {% if currentDate >= productDate %}
+            Hot Deal
+          {% else %}
+            Limited Stock
+          {% endif %}
+        {% elsif currentDate >= productDate %}
+          New Arrival
+        {% endif %}
+      {% endif %}
+
     </span>
 
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
       {{ 'products.product.sold_out' | t }}
     </span>
+
+
   {%- endif -%}
 </div>

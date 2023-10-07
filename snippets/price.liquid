@@ -120,15 +120,6 @@ Usage:
       </span>
     </small>
   </div>
-  {% assign current_variant = product.selected_or_first_available_variant %}
-  {% assign currentDate = 'now' | date: '%s' %}
-  {% assign withinAMonth = currentDate | minus: 2592000 %}
-  {% assign productDate = product.published_at | date: '%s' %}
-  {%- if show_badges -%}
-    {% assign current_variant = product.selected_or_first_available_variant %}
-    {% assign currentDate = 'now' | date: '%s' %}
-    {% assign withinAMonth = currentDate | minus: 2592000 %}
-    {% assign productDate = product.published_at | date: '%s' %}
 
 
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

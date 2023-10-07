@@ -9,6 +9,14 @@
             "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n    {% assign currentDate = 'now' | date: '%s' %}\n    {% assign withinAMonth = currentDate | minus: 2592000 %}\n    {% assign productDate = product.published_at | date: '%s' %}\n\n<span class=\"badge price__badge-sale\">\n{% if current_variant.available %}\n\t{% if current_variant.inventory_quantity < 10 %}\n\t{% if currentDate >= productDate %}\n\t\tHot Deal\n\t{% else %}\n\t\tLimited Stock\n\t{% endif %}\n\t{% elsif currentDate >= productDate %}\n\t\tNew Arrival\n\t{% endif %}\n{% endif %}\n<\/span>"
           }
         },
+        "4b81b4cb-fb30-4ea4-82f3-784c187468dc": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -58,6 +66,7 @@
       },
       "block_order": [
         "adb423e0-4c8f-4365-a5eb-f8969df1cb60",
+        "4b81b4cb-fb30-4ea4-82f3-784c187468dc",
         "vendor",
         "title",
         "price",

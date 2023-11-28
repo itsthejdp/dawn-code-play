@@ -277,6 +277,10 @@
           "label": "Snapchat",
           "info": "https://www.snapchat.com/add/shopify"
         },
+        "social_spotify_link": {
+          "label": "Spotify",
+          "info": "https://spotify.com/shopify"
+        },
         "social_youtube_link": {
           "label": "YouTube",
           "info": "https://www.youtube.com/shopify"

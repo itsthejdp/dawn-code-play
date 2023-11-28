@@ -4,8 +4,8 @@
     "theme_name": "Dawn",
     "theme_version": "11.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -1355,7 +1355,7 @@
         "type": "text",
         "id": "social_spotify_link",
         "label": "t:settings_schema.social-media.settings.social_spotify_link.label",
-        "info": "t:settings_schema.social-media.settings.social_spotify_link.info"
+        "info": "t:settings_schema.social-media.settings.spotify_link.info"
       },
       {
         "type": "text",

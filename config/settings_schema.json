@@ -1355,7 +1355,7 @@
         "type": "text",
         "id": "social_spotify_link",
         "label": "t:settings_schema.social-media.settings.social_spotify_link.label",
-        "info": "t:settings_schema.social-media.settings.spotify_link.info"
+        "info": "t:settings_schema.social-media.settings.social_spotify_link.info"
       },
       {
         "type": "text",

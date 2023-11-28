@@ -1353,6 +1353,12 @@
       },
       {
         "type": "text",
+        "id": "social_spotify_link",
+        "label": "t:settings_schema.social-media.settings.social_spotify_link.label",
+        "info": "t:settings_schema.social-media.settings.spotify_link.info"
+      },
+      {
+        "type": "text",
         "id": "social_tumblr_link",
         "label": "t:settings_schema.social-media.settings.social_tumblr_link.label",
         "info": "t:settings_schema.social-media.settings.social_tumblr_link.info"

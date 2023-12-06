@@ -1,0 +1,163 @@
+<style> 
+    /* Full Section */
+    #ecomm-main-product {
+        border: 2px solid red;
+    }
+
+    
+    
+    /* HTML Elements */
+    img {
+        border-radius: 25px;
+    }
+
+    .pdp-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .product-img {
+        border: 2px solid red;
+    }
+
+    .main-img img {
+        height: 250px;
+        width: 250px;
+    }
+
+    /* DIV - THUMBNAIL */
+    .thumbnail-img {
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .quantity-selector {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 15px;
+        margin-right: 40px;
+    }
+
+    .quantity-section {
+        border: 2px solid black;
+    }
+
+    #qty {
+        padding: 0 20px;
+    }
+
+    /* BUTTON */
+
+    .main-prod-button {
+        background-color:
+        /* padding: 0 50px; */
+    }
+
+    .button-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    #sale-price {
+        margin-right: 10px;
+    }
+
+    #discount-pct {
+        background-color: orange;
+        color: red;
+        padding: 15px;
+        border-radius: 15px;
+        opacity: 75%;    
+    }
+
+    .variant-option {
+        border-radius: 30px;
+        background-color: #fff;
+    }
+
+    /* MAIN PRODUCT SECTION */
+
+    .main-product-section {
+        border: 3px solid green;
+        margin: 0 50px;
+        padding: 0 20px;
+    }
+
+    .added-to-cart {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    }
+
+
+    /* Final section */
+
+    .final-section {
+        display: flex;
+        align-items: center;
+    }
+
+    /* SLIDER */
+
+    .slid-arr {
+        position: relative
+        background-color: antiquewhite;
+        border-radius: 30px;
+    }
+
+
+</style>
+
+
+<section id="ecomm-main-product">
+        <div class="pdp-card page-width">
+            <a class="slid-arr" href="">&larr;</a>
+            <div class="product-img">
+                <div class="main-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-1.jpg?v=1701844527" alt="">
+                </div>
+            <a class="slid-arr" href="">&rarr;</a>
+                <div class="product-thumbnails">
+                    <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-2-thumbnail.jpg?v=1701844527" alt="">
+                    <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-3-thumbnail.jpg?v=1701844527" alt="">
+                    <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-4-thumbnail.jpg?v=1701844527" alt="">
+                </div>
+            </div>
+            <div class="main-product-section">
+                <h5>Stashboxes</h5>
+                <h1>Stashbox</h1>
+                <h2 id="actual-price">$250.00</h2> 
+                <div class="variant-selector">
+                    <h3>Variant</h3>
+                    <button class="variant-option">Black</button>
+                    <button class="variant-option">Champagne</button>
+                </div>
+                <div class="quantity-section-two">
+                    <h3>Quantity</h3>
+                    <div class="quantity-selector">
+                        <button class="qty-sub">-</button><input type="text"><button class="qty-add">+</button>
+                </div>
+                </div>
+                {% form 'product', product %}            
+                    <div class="button-section">                    
+                        <button id="atc-button" class="main-prod-button"> <p> Add to Cart</p></button>
+                        <button id="buy-it-now-button" class="main-prod-button"> <p> Buy it now! </p></button>
+                    </div>
+                {% endform %}
+                <div class="final-section">
+                    <p><span></span> Share</p>
+                    <a href="">View full details &rarr; </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<script>
+</script>
+

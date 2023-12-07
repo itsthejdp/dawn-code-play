@@ -7,23 +7,29 @@
     
     
     /* HTML Elements */
-    img {
-        border-radius: 25px;
-    }
+    
 
     .pdp-card {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        
+        
     }
 
-    .product-img {
+    .product-img-sec {
         border: 2px solid red;
+        
     }
+
+    .main-img {
+        position: relative;
+    }
+
 
     .main-img img {
-        height: 250px;
-        width: 250px;
+        height: 100%;
+        max-width: 100%;
     }
 
     /* DIV - THUMBNAIL */
@@ -100,15 +106,38 @@
     .final-section {
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
 
     /* SLIDER */
 
-    .slid-arr {
-        position: relative
+    .slider-arr {
+        
         background-color: antiquewhite;
-        border-radius: 30px;
+        border-radius: 35px;
+        padding:0 10px;
+        
+        
     }
+
+    .larr, .rarr {
+        position: absolute;
+        top: 50%;
+        
+        
+    }
+
+    .larr {
+        
+        
+    }
+
+    .rarr {
+        right: 10px;
+        
+    }
+
+
 
 
 </style>
@@ -116,12 +145,12 @@
 
 <section id="ecomm-main-product">
         <div class="pdp-card page-width">
-            <a class="slid-arr" href="">&larr;</a>
-            <div class="product-img">
+            <div class="product-img-sec">               
                 <div class="main-img">
+                    <button class="slider-arr larr" href="">&larr;</button>
+                    <button class="slider-arr rarr" href="">&rarr;</button>
                     <img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-1.jpg?v=1701844527" alt="">
-                </div>
-            <a class="slid-arr" href="">&rarr;</a>
+                </div>            
                 <div class="product-thumbnails">
                     <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-2-thumbnail.jpg?v=1701844527" alt="">
                     <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-3-thumbnail.jpg?v=1701844527" alt="">

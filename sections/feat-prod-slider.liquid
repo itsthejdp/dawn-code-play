@@ -22,15 +22,13 @@
         
     }
 
-    .main-img {
-        position: relative;
-    }
+    
 
 
-    .main-img img {
+    /* .main-img img {
         height: 100%;
         max-width: 100%;
-    }
+    } */
 
     /* DIV - THUMBNAIL */
     .thumbnail-img {
@@ -111,6 +109,36 @@
 
     /* SLIDER */
 
+    .slider {
+        max-width: 100rem;
+        height: 50rem;
+        margin: 0 auto;
+        position: relative;
+
+        /* In the end */
+        overflow: hidden;
+    }
+
+    .slide > img {
+  /* Only for images that have different size than slide */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* The animation element */
+        transition: transform 1s;
+    }
+
     .slider-arr {
         
         background-color: antiquewhite;
@@ -146,7 +174,7 @@
 <section id="ecomm-main-product">
         <div class="pdp-card page-width">
             <div class="product-img-sec">               
-                <div class="main-img slider">
+                <div class="slider">
                     <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-1.jpg?v=1701844527" alt=""></div>
                     <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-4.jpg?v=1701844527" alt=""></div>
                     <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-3.jpg?v=1701844527" alt=""></div>
@@ -197,10 +225,44 @@
 
     let curSlide = 0;
     const maxSlide = slides.length;
-
-    slides.forEach((s, i) => s.style.transform = `translateY(${100 * i}%)`);
+    
+    
 
     const slider = document.querySelector('.slider');
+
+    slider.style.transform = 'scale(0.2)';
+    slider.style.overflow = 'scale(0.5)'
+
+    const goToSlide = function(slide) {
+        slides.forEach(
+            (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`))
+    }
+
+    goToSlide(0);
+
+    const nextSlide = function() {
+        if (curSlide === 0) {
+            curSlide = maxSlide - 1;
+        } else {
+            curSlide--;
+            goToSlide(curSlide);
+        }
+    }
+
+    const prevSlide = function() {
+        if (curSlide === 0) {
+            curSlide = maxSlide - 1;
+        } else {
+            curSlide--;
+            goToSlide(curSlide);
+        }
+    }
+    
+    //Next slide
+    btnRight.addEventListener('click', nextSlide);
+
+    // Previous slide
+    btnLeft.addEventListener('click', prevSlide)
     
 
 </script>

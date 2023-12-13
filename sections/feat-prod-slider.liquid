@@ -158,8 +158,7 @@
                 </div>
             </div>
             <div class="main-product-section">
-                <h5>Stashboxes</h5>
-                <h1>Stashbox</h1>
+                <h1> {{ product.title }} </h1>
                 <h2 id="actual-price">$250.00</h2> 
                 <div class="variant-selector">
                     <h3>Variant</h3>
@@ -169,7 +168,7 @@
                 <div class="quantity-section-two">
                     <h3>Quantity</h3>
                     <div class="quantity-selector">
-                        <button class="qty-sub">-</button><input type="text"><button class="qty-add">+</button>
+                        <button class="qty-sub">-</button><input type="text" name="quantity" min="1" value="1"><button class="qty-add">+</button>
                 </div>
                 </div>
                 {% form 'product', product %}            
@@ -189,5 +188,23 @@
     </section>
 
 <script>
+    const sliderArrows = document.querySelectorAll('.slider-arr')
+    const btnLeft = document.querySelector('.larr');
+    const btnRight = document.querySelector('.rarr');
+
+    let curSlide = 0;
+    const maxSlide = slides.length;
+
+    slides.forEach((s, i)) => s.style.transform = `translateX(${100 * })`
+    
+
+
+    sliderArrows.forEach(function(sliderArrow) {
+    sliderArrow.addEventListener('click', function() {
+        alert('Clicked!')
+        
+    });
+});
+
 </script>
 

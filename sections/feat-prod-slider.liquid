@@ -146,10 +146,12 @@
 <section id="ecomm-main-product">
         <div class="pdp-card page-width">
             <div class="product-img-sec">               
-                <div class="main-img">
+                <div class="main-img slider">
+                    <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-1.jpg?v=1701844527" alt=""></div>
+                    <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-4.jpg?v=1701844527" alt=""></div>
+                    <div class="slide"><img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-3.jpg?v=1701844527" alt=""></div>
                     <button class="slider-arr larr" href="">&larr;</button>
-                    <button class="slider-arr rarr" href="">&rarr;</button>
-                    <img src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-1.jpg?v=1701844527" alt="">
+                    <button class="slider-arr rarr" href="">&rarr;</button>                
                 </div>            
                 <div class="product-thumbnails">
                     <img class="thumbnail-img" src="https://cdn.shopify.com/s/files/1/0570/1877/7670/files/image-product-2-thumbnail.jpg?v=1701844527" alt="">
@@ -189,22 +191,17 @@
 
 <script>
     const sliderArrows = document.querySelectorAll('.slider-arr')
+    const slides = document.querySelectorAll('.slide')
     const btnLeft = document.querySelector('.larr');
     const btnRight = document.querySelector('.rarr');
 
     let curSlide = 0;
     const maxSlide = slides.length;
 
-    slides.forEach((s, i)) => s.style.transform = `translateX(${100 * })`
+    slides.forEach((s, i) => s.style.transform = `translateY(${100 * i}%)`);
+
+    const slider = document.querySelector('.slider');
     
-
-
-    sliderArrows.forEach(function(sliderArrow) {
-    sliderArrow.addEventListener('click', function() {
-        alert('Clicked!')
-        
-    });
-});
 
 </script>
 

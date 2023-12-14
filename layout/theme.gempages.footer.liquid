@@ -284,6 +284,8 @@
       {{ content_for_layout }}
     </main>
 
+    {% section 'feat-prod-slider' %}
+
     {% sections 'footer-group' %}
 
     <ul hidden>
@@ -331,6 +333,7 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
       };
     </script>
+    <script src="../assets/scripts.js"></script>
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
